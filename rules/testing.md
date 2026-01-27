@@ -1,30 +1,30 @@
-# Testing Requirements
+# 测试要求
 
-## Minimum Test Coverage: 80%
+## 最低测试覆盖率：80%
 
-Test Types (ALL required):
-1. **Unit Tests** - Individual functions, utilities, components
-2. **Integration Tests** - API endpoints, database operations
-3. **E2E Tests** - Critical user flows (Playwright)
+测试类型（全部必需）：
+1. **单元测试** - 单个函数、工具函数、组件
+2. **集成测试** - API 端点、数据库操作
+3. **端到端测试（E2E）** - 关键用户流程（Playwright）
 
-## Test-Driven Development
+## 测试驱动开发
 
-MANDATORY workflow:
-1. Write test first (RED)
-2. Run test - it should FAIL
-3. Write minimal implementation (GREEN)
-4. Run test - it should PASS
-5. Refactor (IMPROVE)
-6. Verify coverage (80%+)
+强制执行的工作流程：
+1. 先编写测试（红灯阶段）
+2. 运行测试 - 应该失败
+3. 编写最小实现代码（绿灯阶段）
+4. 运行测试 - 应该通过
+5. 重构代码（改进阶段）
+6. 验证覆盖率（80%以上）
 
-## Troubleshooting Test Failures
+## 测试失败排查
 
-1. Use **tdd-guide** agent
-2. Check test isolation
-3. Verify mocks are correct
-4. Fix implementation, not tests (unless tests are wrong)
+1. 使用 **tdd-guide** 代理
+2. 检查测试隔离性
+3. 验证模拟对象是否正确
+4. 修正实现代码，而非测试代码（除非测试本身有误）
 
-## Agent Support
+## 代理支持
 
-- **tdd-guide** - Use PROACTIVELY for new features, enforces write-tests-first
-- **e2e-runner** - Playwright E2E testing specialist
+- **tdd-guide** - 主动用于新功能开发，强制先写测试
+- **e2e-runner** - Playwright 端到端测试专家

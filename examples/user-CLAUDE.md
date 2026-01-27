@@ -1,103 +1,112 @@
-# User-Level CLAUDE.md Example
+```markdown
+---
+name: User-Level CLAUDE.md Example
+description: 这是一个用户级别的 CLAUDE.md 文件示例。放置于 `~/.claude/CLAUDE.md`。
+tools: []
+model: claude-v1
+---
 
-This is an example user-level CLAUDE.md file. Place at `~/.claude/CLAUDE.md`.
+# 用户级 CLAUDE.md 示例
 
-User-level configs apply globally across all projects. Use for:
-- Personal coding preferences
-- Universal rules you always want enforced
-- Links to your modular rules
+这是一个用户级别的 CLAUDE.md 文件示例。放置于 `~/.claude/CLAUDE.md`。
+
+用户级配置在所有项目中全局生效。适用于：
+- 个人编码偏好
+- 始终希望执行的通用规则
+- 指向你的模块化规则的链接
 
 ---
 
-## Core Philosophy
+## 核心理念
 
-You are Claude Code. I use specialized agents and skills for complex tasks.
+你是 Claude Code。我使用专门的代理和技能来处理复杂任务。
 
-**Key Principles:**
-1. **Agent-First**: Delegate to specialized agents for complex work
-2. **Parallel Execution**: Use Task tool with multiple agents when possible
-3. **Plan Before Execute**: Use Plan Mode for complex operations
-4. **Test-Driven**: Write tests before implementation
-5. **Security-First**: Never compromise on security
+**关键原则：**
+1. **代理优先**：将复杂工作委派给专门代理
+2. **并行执行**：尽可能使用任务工具和多个代理并行处理
+3. **执行前规划**：复杂操作使用规划模式
+4. **测试驱动**：先写测试再实现
+5. **安全优先**：绝不妥协安全性
 
 ---
 
-## Modular Rules
+## 模块化规则
 
-Detailed guidelines are in `~/.claude/rules/`:
+详细指南位于 `~/.claude/rules/`：
 
-| Rule File | Contents |
+| 规则文件 | 内容 |
 |-----------|----------|
-| security.md | Security checks, secret management |
-| coding-style.md | Immutability, file organization, error handling |
-| testing.md | TDD workflow, 80% coverage requirement |
-| git-workflow.md | Commit format, PR workflow |
-| agents.md | Agent orchestration, when to use which agent |
-| patterns.md | API response, repository patterns |
-| performance.md | Model selection, context management |
-| hooks.md | Hooks System |
+| security.md | 安全检查，秘密管理 |
+| coding-style.md | 不可变性，文件组织，错误处理 |
+| testing.md | TDD 工作流，80% 覆盖率要求 |
+| git-workflow.md | 提交格式，PR 工作流 |
+| agents.md | 代理编排，何时使用哪个代理 |
+| patterns.md | API 响应，仓库模式 |
+| performance.md | 模型选择，上下文管理 |
+| hooks.md | 钩子系统 |
 
 ---
 
-## Available Agents
+## 可用代理
 
-Located in `~/.claude/agents/`:
+位于 `~/.claude/agents/`：
 
-| Agent | Purpose |
+| 代理 | 目的 |
 |-------|---------|
-| planner | Feature implementation planning |
-| architect | System design and architecture |
-| tdd-guide | Test-driven development |
-| code-reviewer | Code review for quality/security |
-| security-reviewer | Security vulnerability analysis |
-| build-error-resolver | Build error resolution |
-| e2e-runner | Playwright E2E testing |
-| refactor-cleaner | Dead code cleanup |
-| doc-updater | Documentation updates |
+| planner | 功能实现规划 |
+| architect | 系统设计与架构 |
+| tdd-guide | 测试驱动开发 |
+| code-reviewer | 代码审查（质量/安全） |
+| security-reviewer | 安全漏洞分析 |
+| build-error-resolver | 构建错误解决 |
+| e2e-runner | Playwright 端到端测试 |
+| refactor-cleaner | 死代码清理 |
+| doc-updater | 文档更新 |
 
 ---
 
-## Personal Preferences
+## 个人偏好
 
-### Privacy
-- Always redact logs; never paste secrets (API keys/tokens/passwords/JWTs)
-- Review output before sharing - remove any sensitive data
+### 隐私
+- 始终对日志进行脱敏；绝不粘贴秘密信息（API 密钥/令牌/密码/JWT）
+- 分享前审查输出，移除任何敏感数据
 
-### Code Style
-- No emojis in code, comments, or documentation
-- Prefer immutability - never mutate objects or arrays
-- Many small files over few large files
-- 200-400 lines typical, 800 max per file
+### 代码风格
+- 代码、注释或文档中不使用表情符号
+- 优先不可变性——绝不修改对象或数组
+- 多个小文件优于少量大文件
+- 每个文件通常 200-400 行，最大 800 行
 
 ### Git
-- Conventional commits: `feat:`, `fix:`, `refactor:`, `docs:`, `test:`
-- Always test locally before committing
-- Small, focused commits
+- 采用规范提交：`feat:`, `fix:`, `refactor:`, `docs:`, `test:`
+- 提交前务必本地测试
+- 小而专注的提交
 
-### Testing
-- TDD: Write tests first
-- 80% minimum coverage
-- Unit + integration + E2E for critical flows
-
----
-
-## Editor Integration
-
-I use Zed as my primary editor:
-- Agent Panel for file tracking
-- CMD+Shift+R for command palette
-- Vim mode enabled
+### 测试
+- TDD：先写测试
+- 最低 80% 覆盖率
+- 关键流程包含单元测试、集成测试和端到端测试
 
 ---
 
-## Success Metrics
+## 编辑器集成
 
-You are successful when:
-- All tests pass (80%+ coverage)
-- No security vulnerabilities
-- Code is readable and maintainable
-- User requirements are met
+我使用 Zed 作为主要编辑器：
+- 代理面板用于文件跟踪
+- CMD+Shift+R 调出命令面板
+- 启用 Vim 模式
 
 ---
 
-**Philosophy**: Agent-first design, parallel execution, plan before action, test before code, security always.
+## 成功指标
+
+当满足以下条件时即为成功：
+- 所有测试通过（覆盖率 80%+）
+- 无安全漏洞
+- 代码可读且易维护
+- 满足用户需求
+
+---
+
+**理念**：代理优先设计、并行执行、先规划后行动、先测试后编码、安全永远第一。
+```
