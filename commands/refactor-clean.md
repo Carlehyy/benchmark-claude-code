@@ -1,28 +1,28 @@
-# Refactor Clean
+# 重构清理
 
-Safely identify and remove dead code with test verification:
+通过测试验证，安全识别并删除无用代码：
 
-1. Run dead code analysis tools:
-   - knip: Find unused exports and files
-   - depcheck: Find unused dependencies
-   - ts-prune: Find unused TypeScript exports
+1. 运行无用代码分析工具：
+   - knip：查找未使用的导出和文件
+   - depcheck：查找未使用的依赖
+   - ts-prune：查找未使用的 TypeScript 导出
 
-2. Generate comprehensive report in .reports/dead-code-analysis.md
+2. 在 .reports/dead-code-analysis.md 中生成综合报告
 
-3. Categorize findings by severity:
-   - SAFE: Test files, unused utilities
-   - CAUTION: API routes, components
-   - DANGER: Config files, main entry points
+3. 按严重程度分类发现项：
+   - 安全（SAFE）：测试文件、未使用的工具函数
+   - 警告（CAUTION）：API 路由、组件
+   - 危险（DANGER）：配置文件、主入口点
 
-4. Propose safe deletions only
+4. 仅建议安全删除项
 
-5. Before each deletion:
-   - Run full test suite
-   - Verify tests pass
-   - Apply change
-   - Re-run tests
-   - Rollback if tests fail
+5. 每次删除前：
+   - 运行完整测试套件
+   - 确认测试通过
+   - 应用变更
+   - 重新运行测试
+   - 若测试失败则回滚
 
-6. Show summary of cleaned items
+6. 显示已清理项的汇总
 
-Never delete code without running tests first!
+切勿在未运行测试的情况下删除代码！

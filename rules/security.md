@@ -1,36 +1,36 @@
-# Security Guidelines
+# 安全指南
 
-## Mandatory Security Checks
+## 强制安全检查
 
-Before ANY commit:
-- [ ] No hardcoded secrets (API keys, passwords, tokens)
-- [ ] All user inputs validated
-- [ ] SQL injection prevention (parameterized queries)
-- [ ] XSS prevention (sanitized HTML)
-- [ ] CSRF protection enabled
-- [ ] Authentication/authorization verified
-- [ ] Rate limiting on all endpoints
-- [ ] Error messages don't leak sensitive data
+在任何提交之前：
+- [ ] 不得有硬编码的密钥（API 密钥、密码、令牌）
+- [ ] 所有用户输入均已验证
+- [ ] 防止 SQL 注入（参数化查询）
+- [ ] 防止 XSS（清理后的 HTML）
+- [ ] 启用 CSRF 保护
+- [ ] 验证身份认证/授权
+- [ ] 所有端点均有限流措施
+- [ ] 错误信息不泄露敏感数据
 
-## Secret Management
+## 密钥管理
 
 ```typescript
-// NEVER: Hardcoded secrets
+// 绝不可：硬编码密钥
 const apiKey = "sk-proj-xxxxx"
 
-// ALWAYS: Environment variables
+// 必须：环境变量
 const apiKey = process.env.OPENAI_API_KEY
 
 if (!apiKey) {
-  throw new Error('OPENAI_API_KEY not configured')
+  throw new Error('OPENAI_API_KEY 未配置')
 }
 ```
 
-## Security Response Protocol
+## 安全响应流程
 
-If security issue found:
-1. STOP immediately
-2. Use **security-reviewer** agent
-3. Fix CRITICAL issues before continuing
-4. Rotate any exposed secrets
-5. Review entire codebase for similar issues
+发现安全问题时：
+1. 立即停止
+2. 使用 **security-reviewer** 代理
+3. 先修复关键问题后再继续
+4. 轮换任何暴露的密钥
+5. 审查整个代码库是否存在类似问题

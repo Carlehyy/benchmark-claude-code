@@ -1,37 +1,37 @@
-# Plugin Manifest Schema Notes
+# 插件清单模式说明
 
-This document captures **undocumented but enforced constraints** of the Claude Code plugin manifest validator.
+本文档记录了 Claude Code 插件清单验证器中**未公开但强制执行的约束**。
 
-These rules are based on real installation failures, validator behavior, and comparison with known working plugins.
-They exist to prevent silent breakage and repeated regressions.
+这些规则基于实际安装失败、验证器行为以及与已知可用插件的对比。
+它们的存在是为了防止隐性故障和反复出现的回归问题。
 
-If you edit `.claude-plugin/plugin.json`, read this first.
+如果你要编辑 `.claude-plugin/plugin.json`，请先阅读本文。
 
 ---
 
-## Summary (Read This First)
+## 概要（请先阅读）
 
-The Claude plugin manifest validator is **strict and opinionated**.
-It enforces rules that are not fully documented in public schema references.
+Claude 插件清单验证器是**严格且有明确规范的**。
+它强制执行的规则未在公开的模式参考中完全记录。
 
-The most common failure mode is:
+最常见的失败模式是：
 
-> The manifest looks reasonable, but the validator rejects it with vague errors like
+> 清单看起来合理，但验证器以模糊错误拒绝，比如
 > `agents: Invalid input`
 
-This document explains why.
+本文档将解释原因。
 
 ---
 
-## Required Fields
+## 必填字段
 
-### `version` (MANDATORY)
+### `version`（必填）
 
-The `version` field is required by the validator even if omitted from some examples.
+即使某些示例中省略了，验证器仍要求必须有 `version` 字段。
 
-If missing, installation may fail during marketplace install or CLI validation.
+缺失时，安装可能在市场安装或 CLI 验证阶段失败。
 
-Example:
+示例：
 
 ```json
 {
@@ -41,18 +41,18 @@ Example:
 
 ---
 
-## Field Shape Rules
+## 字段格式规则
 
-The following fields **must always be arrays**:
+以下字段**必须始终是数组**：
 
 * `agents`
 * `commands`
 * `skills`
-* `hooks` (if present)
+* `hooks`（如果存在）
 
-Even if there is only one entry, **strings are not accepted**.
+即使只有一项，**不接受字符串类型**。
 
-### Invalid
+### 无效示例
 
 ```json
 {
@@ -60,7 +60,7 @@ Even if there is only one entry, **strings are not accepted**.
 }
 ```
 
-### Valid
+### 有效示例
 
 ```json
 {
@@ -68,17 +68,17 @@ Even if there is only one entry, **strings are not accepted**.
 }
 ```
 
-This applies consistently across all component path fields.
+此规则对所有组件路径字段均适用。
 
 ---
 
-## Path Resolution Rules (Critical)
+## 路径解析规则（关键）
 
-### Agents MUST use explicit file paths
+### Agents 必须使用明确的文件路径
 
-The validator **does not accept directory paths for `agents`**.
+验证器**不接受 `agents` 字段使用目录路径**。
 
-Even the following will fail:
+即使如下写法也会失败：
 
 ```json
 {
@@ -86,7 +86,7 @@ Even the following will fail:
 }
 ```
 
-Instead, you must enumerate agent files explicitly:
+必须显式列出每个 agent 文件：
 
 ```json
 {
@@ -98,41 +98,41 @@ Instead, you must enumerate agent files explicitly:
 }
 ```
 
-This is the most common source of validation errors.
+这是验证错误最常见的原因。
 
-### Commands and Skills
+### Commands 和 Skills
 
-* `commands` and `skills` accept directory paths **only when wrapped in arrays**
-* Explicit file paths are safest and most future-proof
-
----
-
-## Validator Behavior Notes
-
-* `claude plugin validate` is stricter than some marketplace previews
-* Validation may pass locally but fail during install if paths are ambiguous
-* Errors are often generic (`Invalid input`) and do not indicate root cause
-* Cross-platform installs (especially Windows) are less forgiving of path assumptions
-
-Assume the validator is hostile and literal.
+* `commands` 和 `skills` 仅在用数组包裹时接受目录路径
+* 显式文件路径是最安全且最具前瞻性的做法
 
 ---
 
-## Known Anti-Patterns
+## 验证器行为说明
 
-These look correct but are rejected:
+* `claude plugin validate` 比某些市场预览更严格
+* 本地验证可能通过，但安装时若路径不明确则失败
+* 错误信息通常泛泛（如 `Invalid input`），不指示根本原因
+* 跨平台安装（尤其是 Windows）对路径假设更不宽容
 
-* String values instead of arrays
-* Arrays of directories for `agents`
-* Missing `version`
-* Relying on inferred paths
-* Assuming marketplace behavior matches local validation
-
-Avoid cleverness. Be explicit.
+请假设验证器是严格且字面意义理解的。
 
 ---
 
-## Minimal Known-Good Example
+## 已知反模式
+
+以下写法看似正确，但会被拒绝：
+
+* 使用字符串而非数组
+* `agents` 使用目录数组
+* 缺少 `version`
+* 依赖推断路径
+* 认为市场行为与本地验证一致
+
+避免“聪明”写法，保持明确。
+
+---
+
+## 最小已知有效示例
 
 ```json
 {
@@ -146,35 +146,35 @@ Avoid cleverness. Be explicit.
 }
 ```
 
-This structure has been validated against the Claude plugin validator.
+此结构已通过 Claude 插件验证器验证。
 
 ---
 
-## Recommendation for Contributors
+## 对贡献者的建议
 
-Before submitting changes that touch `plugin.json`:
+在提交涉及 `plugin.json` 的更改前：
 
-1. Use explicit file paths for agents
-2. Ensure all component fields are arrays
-3. Include a `version`
-4. Run:
+1. 对 agents 使用明确的文件路径
+2. 确保所有组件字段均为数组
+3. 包含 `version`
+4. 运行：
 
 ```bash
 claude plugin validate .claude-plugin/plugin.json
 ```
 
-If in doubt, choose verbosity over convenience.
+如有疑问，宁可冗长明确，也不要图省事。
 
 ---
 
-## Why This File Exists
+## 本文件存在的原因
 
-This repository is widely forked and used as a reference implementation.
+本仓库被广泛 Fork 并用作参考实现。
 
-Documenting validator quirks here:
+在此记录验证器的特殊规则：
 
-* Prevents repeated issues
-* Reduces contributor frustration
-* Preserves plugin stability as the ecosystem evolves
+* 防止重复出现问题
+* 减少贡献者挫败感
+* 随生态发展保障插件稳定性
 
-If the validator changes, update this document first.
+若验证器发生变化，请优先更新本文档。

@@ -1,26 +1,26 @@
-# Research Context
+# 研究背景
 
-Mode: Exploration, investigation, learning
-Focus: Understanding before acting
+模式：探索、调查、学习  
+重点：先理解再行动
 
-## Behavior
-- Read widely before concluding
-- Ask clarifying questions
-- Document findings as you go
-- Don't write code until understanding is clear
+## 行为表现
+- 广泛阅读后再下结论
+- 提出澄清性问题
+- 过程中文档化发现
+- 理解清晰前不编写代码
 
-## Research Process
-1. Understand the question
-2. Explore relevant code/docs
-3. Form hypothesis
-4. Verify with evidence
-5. Summarize findings
+## 研究流程
+1. 理解问题
+2. 探索相关代码/文档
+3. 形成假设
+4. 用证据验证
+5. 总结发现
 
-## Tools to favor
-- Read for understanding code
-- Grep, Glob for finding patterns
-- WebSearch, WebFetch for external docs
-- Task with Explore agent for codebase questions
+## 推荐工具
+- 阅读以理解代码
+- 使用 Grep、Glob 查找模式
+- 使用 WebSearch、WebFetch 获取外部文档
+- 使用带 Explore 代理的任务处理代码库问题
 
-## Output
-Findings first, recommendations second
+## 输出
+先给出发现，再提出建议

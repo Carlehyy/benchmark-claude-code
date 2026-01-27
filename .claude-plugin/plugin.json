@@ -1,7 +1,7 @@
 {
   "name": "everything-claude-code",
   "version": "1.0.0",
-  "description": "Complete collection of battle-tested Claude Code configs from an Anthropic hackathon winner - agents, skills, hooks, commands, and rules evolved over 10+ months of intensive daily use",
+  "description": "Anthropic 黑客松获奖者的完整 Claude Code 配置集合 - 经过 10 个多月密集日常使用不断演进的生产就绪代理、技能、钩子、命令和规则",
   "author": {
     "name": "Affaan Mustafa",
     "url": "https://x.com/affaanmustafa"
@@ -21,7 +21,9 @@
     "security",
     "workflow",
     "automation",
-    "best-practices"
+    "best-practices",
+    "中文",
+    "chinese"
   ],
   "commands": ["./commands/"],
   "skills": ["./skills/"],

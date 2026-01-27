@@ -5,13 +5,13 @@
     "email": "affaan@example.com"
   },
   "metadata": {
-    "description": "Battle-tested Claude Code configurations from an Anthropic hackathon winner"
+    "description": "Anthropic 黑客松获奖者的实战检验 Claude Code 配置"
   },
   "plugins": [
     {
       "name": "everything-claude-code",
       "source": "./",
-      "description": "Complete collection of agents, skills, hooks, commands, and rules evolved over 10+ months of intensive daily use",
+      "description": "经过 10 个多月密集日常使用不断演进的完整代理、技能、钩子、命令和规则集合",
       "author": {
         "name": "Affaan Mustafa"
       },
@@ -26,7 +26,9 @@
         "tdd",
         "code-review",
         "security",
-        "best-practices"
+        "best-practices",
+        "中文",
+        "chinese"
       ],
       "category": "workflow",
       "tags": [
@@ -37,7 +39,8 @@
         "tdd",
         "code-review",
         "security",
-        "best-practices"
+        "best-practices",
+        "中文"
       ]
     }
   ]
