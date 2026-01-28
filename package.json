@@ -1,0 +1,30 @@
+{
+  "name": "speaksmart-miniapp",
+  "version": "1.0.0",
+  "description": "言值 - 提升逻辑表达力的微信小程序",
+  "main": "app.js",
+  "scripts": {
+    "auto:start": "bash scripts/start-automation.sh",
+    "auto:preview": "node scripts/auto-preview.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Carlehyy/benchmark-claude-code.git"
+  },
+  "keywords": [
+    "wechat",
+    "miniprogram",
+    "logic",
+    "expression",
+    "training"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "miniprogram-automator": "^0.10.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

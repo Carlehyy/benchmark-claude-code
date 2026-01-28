@@ -27,3 +27,17 @@ private/
 
 # Session templates (not committed)
 examples/sessions/*.tmp
+
+# 微信小程序相关
+.wechat_devtools/
+config/app.config.js
+screenshots/
+*.tmp
+*.temp
+package-lock.json
+
+# 测试和构建
+coverage/
+.nyc_output/
+dist/
+build/

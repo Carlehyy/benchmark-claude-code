@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/question-list/question-list",
+    "pages/question-detail/question-detail",
+    "pages/answer/answer",
+    "pages/practice/practice",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "言值",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f8f8f8",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#07C160",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/images/tab-home.png",
+        "selectedIconPath": "assets/images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/practice/practice",
+        "text": "练习",
+        "iconPath": "assets/images/tab-practice.png",
+        "selectedIconPath": "assets/images/tab-practice-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/images/tab-profile.png",
+        "selectedIconPath": "assets/images/tab-profile-active.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false,
+  "navigateToMiniProgramAppIdList": [],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于提供更好的服务"
+    }
+  },
+  "requiredPrivateInfos": [],
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "useExtendedLib": {
+    "weui": true
+  },
+  "darkmode": false,
+  "themeLocation": "theme.json"
+}
