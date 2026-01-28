@@ -1,0 +1,26 @@
+{
+  "name": "miniapp-automation",
+  "version": "1.0.0",
+  "description": "微信小程序自动化预览和测试工具",
+  "main": "auto-preview.js",
+  "scripts": {
+    "auto:start": "bash start-automation.sh",
+    "auto:preview": "node auto-preview.js",
+    "auto:help": "node auto-preview.js --help",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wechat",
+    "miniprogram",
+    "automation",
+    "testing"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "miniprogram-automator": "^0.10.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
